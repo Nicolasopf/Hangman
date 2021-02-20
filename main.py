@@ -60,7 +60,7 @@ class Hangman:
 
     def __init__(self, word=""):
         """ Constructor to set word to a random word of wordlist.txt """
-        word = self.get_word()
+        self.word = self.get_word()
 
     def input_loop(self):
         """ Infinite loop to get the letters """
@@ -75,8 +75,13 @@ class Hangman:
         """ Check if the letter is a letter
         Also check if it is in the word.
         """
+        if letter == "exit":
+            exit()
         if len(letter) != 1 or letter.isalpha() is False:
             print("It must be a letter!")
+            return
+        if letter in self.word:
+            print("YES I AM")
 
     def clean(self):
         """ Clear the screen """
