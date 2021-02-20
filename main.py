@@ -56,6 +56,7 @@ class Hangman:
       |
 =========''']
     word = ""
+    tried = 0
 
     def __init__(self, word=""):
         """ Constructor to set word to a random word of wordlist.txt """
@@ -64,11 +65,11 @@ class Hangman:
     def input_loop(self):
         """ Infinite loop to get the letters """
         while 1:
-            letter = input("Letter: ")
             try:
+                letter = input("Letter: ")
                 self.check_letter(letter)
             except EOFError:
-                pass
+                print()
 
     def check_letter(self, letter):
         """ Check if the letter is a letter
@@ -97,7 +98,7 @@ class Hangman:
     def __str__(self):
         """ Prints the body and clean the screan """
         self.clean()
-        return self.HANGMANPICS[self.body]
+        return self.HANGMANPICS[self.tried]
 
 
 cuerpo = Hangman()
