@@ -59,7 +59,7 @@ class Hangman:
     def __init__(self, word=""):
         """ Constructor to set word to a random word of wordlist.txt """
         self.word = self.get_word()
-        self.underscore = "_ " * (len(self.word) - 1)
+        self.underscore = ['_'] * (len(self.word) - 1)
         self.tried = 0
         self.correct = 0
 
@@ -67,6 +67,19 @@ class Hangman:
         """ Infinite loop to get the letters """
         while 1:
             try:
+                if "_" not in self.underscore:
+                    print("\n\nYOU WIN! CONGRATULATIONS! THE WORD\
+ WAS: ", self.word)
+                    input_for_play = input("Do you want to play again? (Y/y for\
+ yes, other letter = no): ")
+                    if input_for_play is "Y" or input_for_play is "y":
+                        self.clean()
+                        self.__init__()
+                    else:
+                        exit()
+                for i in self.underscore:
+                    print(i, end=" ")
+                print()
                 letter = input("Letter: ")
                 self.check_letter(letter)
             except EOFError:
@@ -82,21 +95,24 @@ class Hangman:
         elif len(letter) != 1 or letter.isalpha() is False:
             self.clean()
             print("It must be a letter!")
-            print(self.underscore)
             return
         elif letter in self.word:
-            print("i am")
+            self.set_in(letter)
         else:
             self.tried += 1
             print(self.hang_count())
+            print()
+
+    def set_in(self, letter):
+        """ Set the letters where it should be in underscores """
+        for i in range(len(self.word) - 1):
+            if self.word[i] == letter:
+                self.underscore[i] = self.word[i]
+        return
 
     def clean(self):
         """ Clear the screen """
         system('clear')
-
-    def show_word(self, word):
-        """ Show the word playing """
-        print(word)
 
     def get_word(self):
         """ Gets the word to play with """
@@ -104,7 +120,6 @@ class Hangman:
         with open("wordlist.txt", "r") as file:
             text_lines = file.readlines()
             word = text_lines[line]
-        self.show_word(word)
         return word
 
     def hang_count(self):
@@ -115,10 +130,10 @@ class Hangman:
         except IndexError:
             print("\n\n\n YOU LOST! THE WORD WAS: {}\n\n\n" .format(self.word))
             input_for_play = input("Do you want to play again? (Y/y for yes,\
-            other letter = no): ")
+ other letter = no): ")
             if input_for_play is "Y" or input_for_play is "y":
                 self.clean()
-                return(self.__init__())
+                self.__init__()
             else:
                 exit()
 
