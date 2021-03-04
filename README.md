@@ -4,7 +4,7 @@ I developed the Hangman game in the CLI, hope you like it, you can play offline 
 
 ### Installing
 
-Clone the repository to your machine running python3
+Clone the repository to your machine
 
 ```
 https://github.com/Nicolasopf/Hangman.git
