@@ -22,7 +22,7 @@ If you type a wrong letter, the Hangman will show how he is going to the death s
 
 ## Example
 
-Run the game and you will get into a prompt that you will see a prompt as below:
+Run the game and you will get into a prompt that you will see as below:
 
 ```
 _ _ _ _ _ _ _ _ _
