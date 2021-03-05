@@ -116,7 +116,7 @@ class Hangman:
 
     def get_word(self):
         """ Gets the word to play with """
-        line = randint(0, 50000)
+        line = randint(0, 58108)
         with open("wordlist.txt", "r") as file:
             text_lines = file.readlines()
             word = text_lines[line]
