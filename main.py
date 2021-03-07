@@ -4,7 +4,6 @@ from random import randint
 
 
 class Hangman:
-    body = 0
     HANGMANPICS = ['''
   +---+
   |   |
