@@ -17,12 +17,12 @@ python3 main.py
 
 ## Using
 
-You will get a random word from the wordlist.txt file with 50000 words in english. You need to type letters trying to guess which letters left.
+You will get a random word from the wordlist.txt file with +50000 words in english. You need to type letters trying to guess which letters left.
 If you type a wrong letter, the Hangman will show how he is going to the death slowly.
 
 ## Example
 
-Run the game and you will get into a prompt that you will see a prompt as below:
+Run the game and you will get into a prompt that you will see as below:
 
 ```
 _ _ _ _ _ _ _ _ _
