@@ -62,6 +62,7 @@ class Hangman:
         self.underscore = ['_'] * (len(self.word) - 1)
         self.tried = 0
         self.correct = 0
+        self.tried_letters = ""
 
     def input_loop(self):
         """ Infinite loop to get the letters """
@@ -80,6 +81,7 @@ class Hangman:
                 for i in self.underscore:
                     print(i, end=" ")
                 print()
+                print("Tried: " + self.tried_letters)
                 letter = input("Letter: ")
                 self.check_letter(letter)
             except EOFError:
@@ -98,7 +100,9 @@ class Hangman:
             return
         elif letter in self.word:
             self.set_in(letter)
+            self.clean()
         else:
+            self.tried_letters += "{} ".format(letter)
             self.tried += 1
             print(self.hang_count())
             print()
