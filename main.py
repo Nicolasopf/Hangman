@@ -97,6 +97,10 @@ class Hangman:
             self.clean()
             print("It must be a letter!")
             return
+        elif letter in self.tried_letters:
+            self.clean()
+            print("You sent this letter already!")
+            return
         elif letter in self.word:
             self.set_in(letter)
             self.clean()
